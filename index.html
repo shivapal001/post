@@ -89,6 +89,19 @@
 
         /* Prevent scroll while overlay is active */
         body.void-active { overflow: hidden; }
+
+        /* Mobile responsive overlay */
+        @media (max-width: 640px) {
+            #void-overlay { font-size: 13px; }
+            #void-screen { margin: 14px; }
+            #void-warning { font-size: 18px; top: 38%; padding: 0 16px; }
+            #void-final { font-size: 20px; padding-top: 35%; padding-left: 16px; padding-right: 16px; line-height: 1.6; }
+            #void-start-btn { font-size: 11px; letter-spacing: 2px; padding: 12px 20px; bottom: 10%; }
+        }
+        @media (max-width: 380px) {
+            #void-overlay { font-size: 11px; }
+            #void-final { font-size: 17px; }
+        }
     </style>
 </head>
 <body class="void-active">
@@ -107,6 +120,14 @@
     <!--              POSTHIRE WEBSITE              -->
     <!-- ══════════════════════════════════════════ -->
 
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="nav-mobile-menu" id="mobileMenu">
+        <a href="#how" class="nav-mobile-link">How It Works</a>
+        <a href="#features" class="nav-mobile-link">Features</a>
+        <a href="#who" class="nav-mobile-link">For You</a>
+        <a href="#cta" class="nav-mobile-cta">Get Started →</a>
+    </div>
+
     <!-- NAV -->
     <nav class="nav">
         <div class="nav-inner">
@@ -117,6 +138,9 @@
                 <a href="#who">For You</a>
             </div>
             <a href="#cta" class="nav-cta">Get Started →</a>
+            <div class="nav-hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
         </div>
     </nav>
 
@@ -692,6 +716,22 @@
         // Nav scroll effect
         window.addEventListener('scroll', () => {
             document.querySelector('.nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ── HAMBURGER MENU ─────────────────────────────────
+        const hamburger   = document.getElementById('hamburger');
+        const mobileMenu  = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
         });
     </script>
 </body>
