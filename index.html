@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostHire — Where Startups Meet Creators</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- ── OPENING ANIMATION STYLES ── -->
+    <style>
+        #void-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #000;
+            color: #0f0;
+            font-family: "Consolas", monospace;
+            font-size: 18px;
+            z-index: 99999;
+            overflow: hidden;
+            transition: opacity 1.2s ease;
+        }
+        #void-overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #void-screen {
+            white-space: pre-wrap;
+            margin: 20px;
+            text-shadow: 0 0 8px #0f0;
+        }
+        .void-glitch {
+            animation: voidGlitch 0.2s infinite;
+        }
+        @keyframes voidGlitch {
+            0%   { text-shadow: 0 0 3px #0f0, 0 0 10px #0f0; }
+            50%  { text-shadow: 0 0 5px #0f0, 0 0 15px #0f0; }
+            100% { text-shadow: 0 0 3px #0f0, 0 0 10px #0f0; }
+        }
+        #void-warning {
+            position: fixed;
+            top: 40%;
+            width: 100%;
+            text-align: center;
+            font-size: 28px;
+            color: #f00;
+            display: none;
+            text-shadow: 0 0 10px red;
+            font-family: "Consolas", monospace;
+        }
+        #void-final {
+            background: #000;
+            color: #0f0;
+            font-size: 32px;
+            text-align: center;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            display: none;
+            padding-top: 20%;
+            text-shadow: 0 0 12px #0f0;
+            font-family: "Consolas", monospace;
+        }
+
+        /* Click-to-start button */
+        #void-start-btn {
+            position: fixed;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: "Consolas", monospace;
+            font-size: 14px;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 12px 32px;
+            background: transparent;
+            cursor: pointer;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            animation: blinkBtn 1s step-start infinite;
+            z-index: 100000;
+            white-space: nowrap;
+        }
+        #void-start-btn:hover { background: rgba(0,255,0,0.08); }
+        @keyframes blinkBtn {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        /* Prevent scroll while overlay is active */
+        body.void-active { overflow: hidden; }
+    </style>
+</head>
+<body class="void-active">
+
+    <!-- ══════════════════════════════════════════ -->
+    <!--           OPENING ANIMATION OVERLAY        -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="void-overlay">
+        <div id="void-screen"></div>
+        <div id="void-warning">SYSTEM BREACH DETECTED...</div>
+        <div id="void-final">P O S T H I R E &nbsp; I N I T I A L I Z E D .</div>
+        <button id="void-start-btn">[ CLICK TO INITIALIZE ]</button>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!--              POSTHIRE WEBSITE              -->
+    <!-- ══════════════════════════════════════════ -->
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-logo">Post<span>Hire</span></div>
+            <div class="nav-links">
+                <a href="#how">How It Works</a>
+                <a href="#features">Features</a>
+                <a href="#who">For You</a>
+            </div>
+            <a href="#cta" class="nav-cta">Get Started →</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="geometric-bg">
+            <div class="geo-circle"></div>
+            <div class="geo-circle"></div>
+            <div class="geo-circle"></div>
+        </div>
+        <div class="diamond-ornament"></div>
+        <div class="diamond-ornament"></div>
+        <div class="diamond-ornament"></div>
+        <div class="diamond-ornament"></div>
+        <div class="vertical-divider"></div>
+        <div class="vertical-divider"></div>
+        <div class="dust-particles">
+            <div class="dust"></div><div class="dust"></div><div class="dust"></div>
+            <div class="dust"></div><div class="dust"></div><div class="dust"></div>
+            <div class="dust"></div><div class="dust"></div>
+        </div>
+        <div class="ink-drop"></div><div class="ink-drop"></div>
+        <div class="ink-drop"></div><div class="ink-drop"></div>
+        <div class="fog"></div>
+
+        <div class="hero-content">
+            <div class="top-symbol">❋</div>
+            <p class="pre-title">Startup × Creator Collaboration</p>
+            <h1>POST<span class="h1-accent">HIRE</span></h1>
+            <div class="accent-line"></div>
+            <p class="description">
+                The fastest way for startup founders to find, evaluate, and collaborate with creators — no cold outreach, no endless DMs. Just one click to connect.
+            </p>
+            <div class="hero-buttons">
+                <a href="#cta" class="btn-primary">Find Creators Now</a>
+                <a href="#how" class="btn-ghost">See How It Works</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-n">2 min</span><span class="stat-l">to Connect</span></div>
+                <div class="stat-div">◆</div>
+                <div class="stat"><span class="stat-n">1 Click</span><span class="stat-l">to WhatsApp</span></div>
+                <div class="stat-div">◆</div>
+                <div class="stat"><span class="stat-n">Zero</span><span class="stat-l">Middlemen</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <span>Instagram Creators</span><span class="mx">✦</span>
+            <span>YouTube Creators</span><span class="mx">✦</span>
+            <span>LinkedIn Thought Leaders</span><span class="mx">✦</span>
+            <span>SaaS Founders</span><span class="mx">✦</span>
+            <span>D2C Brands</span><span class="mx">✦</span>
+            <span>Short-form Content</span><span class="mx">✦</span>
+            <span>Startup Marketers</span><span class="mx">✦</span>
+            <span>Early-Stage Startups</span><span class="mx">✦</span>
+            <span>Instagram Creators</span><span class="mx">✦</span>
+            <span>YouTube Creators</span><span class="mx">✦</span>
+            <span>LinkedIn Thought Leaders</span><span class="mx">✦</span>
+            <span>SaaS Founders</span><span class="mx">✦</span>
+            <span>D2C Brands</span><span class="mx">✦</span>
+            <span>Short-form Content</span><span class="mx">✦</span>
+            <span>Startup Marketers</span><span class="mx">✦</span>
+            <span>Early-Stage Startups</span><span class="mx">✦</span>
+        </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <section class="problem-section" id="who">
+        <div class="section-container">
+            <p class="section-label">❋ The Problem</p>
+            <h2 class="section-title">Finding the right match is<br><em>broken</em></h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">🚀</div>
+                    <h3>For Startup Founders</h3>
+                    <ul>
+                        <li>Can't find relevant creators in their niche</li>
+                        <li>No way to evaluate creator experience quickly</li>
+                        <li>Cold outreach gets lost in DMs</li>
+                        <li>No structured way to start collaborating</li>
+                    </ul>
+                </div>
+                <div class="problem-divider">⚜</div>
+                <div class="problem-card">
+                    <div class="problem-icon">🎥</div>
+                    <h3>For Creators</h3>
+                    <ul>
+                        <li>Struggle to find serious startup clients</li>
+                        <li>No platform to get real visibility</li>
+                        <li>Past work is scattered across platforms</li>
+                        <li>Inbound opportunities are nearly zero</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how">
+        <div class="section-container">
+            <p class="section-label">❋ The Process</p>
+            <h2 class="section-title">Simple by design.<br>Powerful in result.</h2>
+
+            <div class="how-tabs">
+                <button class="tab-btn active" data-tab="founder">Startup Founder</button>
+                <button class="tab-btn" data-tab="creator">Creator</button>
+            </div>
+
+            <div class="how-flow" id="founder-flow">
+                <div class="how-step">
+                    <div class="step-num">01</div>
+                    <div class="step-line"></div>
+                    <div class="step-body">
+                        <h4>Sign Up as a Founder</h4>
+                        <p>Create your profile with your startup name, industry, budget range, and what collaboration you need.</p>
+                    </div>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">02</div>
+                    <div class="step-line"></div>
+                    <div class="step-body">
+                        <h4>Browse Creator Profiles</h4>
+                        <p>Explore creators filtered by niche, audience size, or category. See their past work, engagement, and pricing at a glance.</p>
+                    </div>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">03</div>
+                    <div class="step-line"></div>
+                    <div class="step-body">
+                        <h4>Click "Collaborate"</h4>
+                        <p>One click opens WhatsApp with a pre-filled message. Start a real conversation instantly — no forms, no waiting.</p>
+                    </div>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">04</div>
+                    <div class="step-line-none"></div>
+                    <div class="step-body">
+                        <h4>Launch Your Campaign</h4>
+                        <p>Align on deliverables via WhatsApp and get your content live. Fast, direct, and efficient.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="how-flow hidden" id="creator-flow">
+                <div class="how-step">
+                    <div class="step-num">01</div>
+                    <div class="step-line"></div>
+                    <div class="step-body">
+                        <h4>Build Your Profile</h4>
+                        <p>Showcase your niche, audience size, platforms, past work, and pricing. Let your profile speak for you.</p>
+                    </div>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">02</div>
+                    <div class="step-line"></div>
+                    <div class="step-body">
+                        <h4>Get Discovered</h4>
+                        <p>Founders search PostHire's creator directory filtered by niche, platform, and budget. Your profile gets visibility.</p>
+                    </div>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">03</div>
+                    <div class="step-line"></div>
+                    <div class="step-body">
+                        <h4>Receive a WhatsApp Intro</h4>
+                        <p>When a founder clicks "Collaborate," you get a direct WhatsApp message. No cold emails, no agency middlemen.</p>
+                    </div>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">04</div>
+                    <div class="step-line-none"></div>
+                    <div class="step-body">
+                        <h4>Close the Deal</h4>
+                        <p>Negotiate, align, and create — all directly. You keep 100% of what you earn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section" id="features">
+        <div class="section-container">
+            <p class="section-label">❋ The Platform</p>
+            <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-glyph">◈</div>
+                    <h4>WhatsApp Connect</h4>
+                    <p>Every creator profile has a single "Collaborate" button that opens WhatsApp with a pre-written intro. Zero friction, maximum speed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-glyph">✦</div>
+                    <h4>Dual-Side Profiles</h4>
+                    <p>Founders list their startup, industry, and budget. Creators see serious clients — not random people wasting their time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-glyph">◉</div>
+                    <h4>Creator Marketplace</h4>
+                    <p>A living directory of vetted creators across every major platform — Instagram, YouTube, LinkedIn, and short-form.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-glyph">⬧</div>
+                    <h4>Zero Friction</h4>
+                    <p>No complex messaging systems, no payment walls, no AI gating. Sign up, browse, connect. That's it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHATSAPP DEMO -->
+    <section class="demo-section">
+        <div class="section-container demo-inner">
+            <div class="demo-text">
+                <p class="section-label">❋ The Magic Moment</p>
+                <h2 class="section-title" style="text-align:left;">One click.<br>Real conversation.</h2>
+                <p class="demo-desc">When a founder clicks "Collaborate" on any creator's profile, PostHire automatically opens WhatsApp with a pre-written introduction message. No copy-pasting, no awkward cold openers — just instant human connection.</p>
+                <div class="demo-steps">
+                    <div class="d-step"><span class="d-num">→</span> Find a creator you love</div>
+                    <div class="d-step"><span class="d-num">→</span> Click "Collaborate"</div>
+                    <div class="d-step"><span class="d-num">→</span> WhatsApp opens instantly</div>
+                    <div class="d-step"><span class="d-num">→</span> Message pre-filled for you</div>
+                </div>
+            </div>
+            <div class="demo-phone">
+                <div class="phone-frame">
+                    <div class="phone-header">
+                        <div class="ph-back">←</div>
+                        <div class="ph-avatar">A</div>
+                        <div class="ph-info">
+                            <span class="ph-name">Arjun Mehra</span>
+                            <span class="ph-status">online</span>
+                        </div>
+                    </div>
+                    <div class="phone-body">
+                        <div class="chat-date">Today</div>
+                        <div class="chat-bubble typing">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="chat-bubble sent">
+                            Hi, I found you on PostHire. I would like to collaborate. 👋
+                            <div class="bubble-time">just now ✓✓</div>
+                        </div>
+                    </div>
+                    <div class="phone-footer">
+                        <div class="ph-input">Type a message...</div>
+                        <div class="ph-send">▶</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOR WHOM -->
+    <section class="for-section">
+        <div class="section-container">
+            <p class="section-label">❋ Built For</p>
+            <h2 class="section-title">Two sides.<br>One platform.</h2>
+            <div class="for-grid">
+                <div class="for-card">
+                    <div class="for-eyebrow">Startup Founders</div>
+                    <h3>Stop hunting.<br>Start collaborating.</h3>
+                    <p>Whether you're building a SaaS, a D2C brand, or an early-stage startup — PostHire puts a curated creator network at your fingertips. Filter by niche, see real numbers, and reach out in seconds.</p>
+                    <ul class="for-list">
+                        <li>✦ Early-stage founders</li>
+                        <li>✦ SaaS founders</li>
+                        <li>✦ D2C brands</li>
+                        <li>✦ Startup marketers</li>
+                    </ul>
+                    <a href="#cta" class="btn-primary">Find Creators →</a>
+                </div>
+                <div class="for-card for-card-alt">
+                    <div class="for-eyebrow">Creators</div>
+                    <h3>Get seen by<br>the right clients.</h3>
+                    <p>Stop waiting for DMs that never come. Build a profile that speaks for you — your niche, your numbers, your past work — and let serious startup founders come to you.</p>
+                    <ul class="for-list">
+                        <li>✦ Instagram creators</li>
+                        <li>✦ YouTube creators</li>
+                        <li>✦ LinkedIn creators</li>
+                        <li>✦ Short-form specialists</li>
+                    </ul>
+                    <a href="#cta" class="btn-ghost-dark">Join as Creator →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="cta">
+        <div class="geometric-bg" style="opacity:0.03;">
+            <div class="geo-circle"></div>
+            <div class="geo-circle"></div>
+        </div>
+        <div class="fog"></div>
+        <div class="cta-content">
+            <div class="top-symbol" style="animation:none;opacity:1;">❋</div>
+            <p class="pre-title" style="animation:none;opacity:1;">Ready to begin?</p>
+            <h2 class="cta-title">Join PostHire Today</h2>
+            <div class="accent-line" style="animation:none;opacity:1;width:200px;"></div>
+            <p class="cta-sub">Whether you're a founder looking for creators, or a creator looking for serious clients — PostHire is where the collaboration starts.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary btn-large">I'm a Founder →</a>
+                <a href="#" class="btn-ghost btn-large">I'm a Creator →</a>
+            </div>
+            <div class="bottom-symbol" style="animation:none;opacity:1;">⚜</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">Post<span>Hire</span></div>
+            <p class="footer-tagline">Where startups meet creators.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <span>◆</span>
+                <a href="#">Terms</a>
+                <span>◆</span>
+                <a href="#">Contact</a>
+            </div>
+            <p class="footer-copy">© 2025 PostHire. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!--                  SCRIPTS                   -->
+    <!-- ══════════════════════════════════════════ -->
+    <script>
+        // ── OPENING ANIMATION ──────────────────────────────
+        const voidScreen  = document.getElementById("void-screen");
+        const voidWarning = document.getElementById("void-warning");
+        const voidFinal   = document.getElementById("void-final");
+        const voidOverlay = document.getElementById("void-overlay");
+        const voidStartBtn = document.getElementById("void-start-btn");
+
+        const bootText = `
+> Initiating POSTHIRE...
+> Neural core booting...
+> Parsing user behavior...
+> Mapping creator network...
+> Access level: FOUNDER
+> Executing launch protocol...
+
+`;
+
+        const takeover = `
+> Connection established.
+> Creator database: ONLINE
+> Startup profiles: LOADED
+> WhatsApp bridge: READY
+
+> P O S T H I R E   A C T I V A T E D .
+`;
+
+        let charIdx = 0;
+        let phase = 0;
+
+        // ── SOUND ENGINE (Web Audio API) ──────────────────
+        let audioCtx = null;
+        function getAudioCtx() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            return audioCtx;
+        }
+
+        // Kali-style keyboard tick — short square blip
+        function playTypeTick() {
+            try {
+                const ctx = getAudioCtx();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.type = "square";
+                osc.frequency.setValueAtTime(600 + Math.random() * 300, ctx.currentTime);
+                gain.gain.setValueAtTime(0.03, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.03);
+                osc.start(ctx.currentTime);
+                osc.stop(ctx.currentTime + 0.03);
+            } catch(e) {}
+        }
+
+        // Kali warning alarm — aggressive sawtooth pulses
+        function playWarningAlarm() {
+            try {
+                const ctx = getAudioCtx();
+                for (let i = 0; i < 5; i++) {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.connect(gain); gain.connect(ctx.destination);
+                    osc.type = "sawtooth";
+                    const t = ctx.currentTime + i * 0.35;
+                    osc.frequency.setValueAtTime(180, t);
+                    osc.frequency.exponentialRampToValueAtTime(400, t + 0.2);
+                    gain.gain.setValueAtTime(0.22, t);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.28);
+                    osc.start(t); osc.stop(t + 0.29);
+                }
+            } catch(e) {}
+        }
+
+        // Kali Linux boot sound — deep thud + rising power-up + triple confirm beeps
+        function playKaliBootSound() {
+            try {
+                const ctx = getAudioCtx();
+                const now = ctx.currentTime;
+
+                // 1. Low deep thud (system power-on)
+                const thud = ctx.createOscillator();
+                const thudGain = ctx.createGain();
+                thud.connect(thudGain); thudGain.connect(ctx.destination);
+                thud.type = "sine";
+                thud.frequency.setValueAtTime(60, now);
+                thud.frequency.exponentialRampToValueAtTime(30, now + 0.3);
+                thudGain.gain.setValueAtTime(0.5, now);
+                thudGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.3);
+                thud.start(now); thud.stop(now + 0.31);
+
+                // 2. Rising sweep (system loading)
+                const sweep = ctx.createOscillator();
+                const sweepGain = ctx.createGain();
+                sweep.connect(sweepGain); sweepGain.connect(ctx.destination);
+                sweep.type = "sawtooth";
+                sweep.frequency.setValueAtTime(80, now + 0.1);
+                sweep.frequency.exponentialRampToValueAtTime(1400, now + 1.4);
+                sweepGain.gain.setValueAtTime(0.0, now + 0.1);
+                sweepGain.gain.linearRampToValueAtTime(0.18, now + 0.5);
+                sweepGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.4);
+                sweep.start(now + 0.1); sweep.stop(now + 1.41);
+
+                // 3. Noise burst (static/hiss)
+                const bufferSize = ctx.sampleRate * 0.4;
+                const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = noiseBuffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+                const noise = ctx.createBufferSource();
+                noise.buffer = noiseBuffer;
+                const noiseFilter = ctx.createBiquadFilter();
+                noiseFilter.type = "bandpass";
+                noiseFilter.frequency.value = 2000;
+                const noiseGain = ctx.createGain();
+                noise.connect(noiseFilter); noiseFilter.connect(noiseGain); noiseGain.connect(ctx.destination);
+                noiseGain.gain.setValueAtTime(0.08, now + 0.05);
+                noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+                noise.start(now + 0.05); noise.stop(now + 0.46);
+
+                // 4. Triple confirm beeps (POSTHIRE ACTIVATED)
+                const beepFreqs = [523, 659, 784]; // C5, E5, G5 — power chord
+                beepFreqs.forEach((freq, i) => {
+                    const beep = ctx.createOscillator();
+                    const beepGain = ctx.createGain();
+                    beep.connect(beepGain); beepGain.connect(ctx.destination);
+                    beep.type = "square";
+                    const t = now + 1.5 + i * 0.18;
+                    beep.frequency.setValueAtTime(freq, t);
+                    beepGain.gain.setValueAtTime(0.15, t);
+                    beepGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.15);
+                    beep.start(t); beep.stop(t + 0.16);
+                });
+
+            } catch(e) {}
+        }
+
+        // ── START ANIMATION (called after user click) ──────
+        function startAnimation() {
+            voidStartBtn.style.display = "none";
+            // Unlock & init audio context immediately on this click
+            getAudioCtx();
+            // Small delay so AudioContext is fully ready
+            setTimeout(typeVoid, 100);
+        }
+
+        function typeVoid() {
+            if (phase === 0) {
+                if (charIdx < bootText.length) {
+                    const ch = bootText[charIdx++];
+                    voidScreen.textContent += ch;
+                    if (ch.trim().length > 0) playTypeTick();
+                    setTimeout(typeVoid, 40);
+                } else {
+                    phase = 1;
+                    voidWarning.style.display = "block";
+                    voidWarning.classList.add("void-glitch");
+                    playWarningAlarm();
+                    setTimeout(() => {
+                        voidWarning.style.display = "none";
+                        typeVoid();
+                    }, 2000);
+                }
+            } else if (phase === 1) {
+                charIdx = 0;
+                phase = 2;
+                typeVoid();
+            } else if (phase === 2) {
+                if (charIdx < takeover.length) {
+                    const ch = takeover[charIdx++];
+                    voidScreen.textContent += ch;
+                    if (ch.trim().length > 0) playTypeTick();
+                    setTimeout(typeVoid, 40);
+                } else {
+                    setTimeout(() => {
+                        voidFinal.style.display = "block";
+                        voidFinal.classList.add("void-glitch");
+                        playKaliBootSound();  // 🔊 Kali boot sound here
+                        setTimeout(() => {
+                            voidOverlay.classList.add("fade-out");
+                            document.body.classList.remove("void-active");
+                            setTimeout(() => {
+                                voidOverlay.style.display = "none";
+                            }, 1300);
+                        }, 2400);
+                    }, 600);
+                }
+            }
+        }
+
+        // Keydown hackertyper fragments
+        const fragments = [
+            "INITIATING SUBROUTINE...",
+            "AUTHORIZATION KEY: POSTHIRE",
+            "ACCESS CHANNEL: /dev/posthire/syslink",
+            "PROTOCOL_HANDSHAKE( ACCEPTED )",
+            "CREATOR DATABASE > CONNECTED",
+            "SCANNING STARTUP PROFILES...",
+            "NETWORK BRIDGE UPDATING...",
+            "WHATSAPP API: ENABLED",
+            "UPLINK ESTABLISHED: POSTHIRE.IO",
+            "EXECUTING MATCH ALGORITHM...",
+            "RESPONSE: CREATOR FOUND",
+            "ENCRYPTION SHIFT >>> COMPLETE",
+            "MATCH SCORE: 99.4%",
+            "COLLABORATION INITIATED"
+        ];
+        document.addEventListener("keydown", () => {
+            if (voidOverlay.style.display !== "none") {
+                voidScreen.textContent += fragments[Math.floor(Math.random() * fragments.length)] + "\n";
+            }
+        });
+
+        // Start button click handler
+        voidStartBtn.addEventListener("click", startAnimation);
+
+        // ── POSTHIRE SITE SCRIPTS ──────────────────────────
+
+        // Tab switching
+        const tabBtns     = document.querySelectorAll('.tab-btn');
+        const founderFlow = document.getElementById('founder-flow');
+        const creatorFlow = document.getElementById('creator-flow');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                if (btn.dataset.tab === 'founder') {
+                    founderFlow.classList.remove('hidden');
+                    creatorFlow.classList.add('hidden');
+                } else {
+                    founderFlow.classList.add('hidden');
+                    creatorFlow.classList.remove('hidden');
+                }
+            });
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.feature-card, .how-step, .problem-card, .for-card').forEach(el => observer.observe(el));
+
+        // Nav scroll effect
+        window.addEventListener('scroll', () => {
+            document.querySelector('.nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>
